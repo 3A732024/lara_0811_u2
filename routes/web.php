@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -12,6 +13,7 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
 
 Route::get('/', function () {
     return view('welcome');
@@ -39,9 +41,12 @@ Route::get('dashboard',function () {
 
 Route::group(['prefix'=>'admin'],function(){
     Route::get('dashboard',function(){
-        return'admin dashboard';
+        return 'admin dashboard';
     });
 });
+
+
+Route::get('/',[HomeController::class,'index'])->name('home.index');
 
 
 
